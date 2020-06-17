@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+<defs>
+  <style>
+    .f, .g, .l {
+    fill: none;
+    }
+
+    .f, .g {
+    stroke: #58ba9d;
+    stroke-width: 2px;
+    }
+
+    .g {
+    stroke-linecap: round;
+    }
+
+    .k {
+    stroke: none;
+    }</style>
+</defs>
+<g>
+  <g class="f" transform="translate(5 5)">
+    <circle class="k" cx="19.5" cy="19.5" r="19.5"/>
+    <circle class="l" cx="19.5" cy="19.5" r="18.5"/>
+  </g>
+  <g transform="translate(17.5 17.5)">
+    <line class="g" y2="14.65" transform="translate(7.325)"/>
+    <line class="g" y2="14.65" transform="translate(14.65 7.325) rotate(90)"/>
+  </g>
+</g>
+</svg>

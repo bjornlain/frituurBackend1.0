@@ -1,0 +1,8 @@
+.DS_Store
+.idea
+client/app/store
+content
+coverage
+junit.xml
+node_modules
+server/models/*.yaml

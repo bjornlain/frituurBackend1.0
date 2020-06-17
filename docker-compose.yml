@@ -1,0 +1,52 @@
+version: '3.7'
+
+networks:
+  backtier:
+  fronttier:
+
+services:
+  client:
+    build:
+      context: .
+      dockerfile: docker-client
+    networks:
+      - fronttier
+
+  mongo:
+    image: mongo
+    networks:
+      - backtier
+    ports:
+      - 27017:27017
+    volumes:
+      - db:/data/db
+
+  nginx:
+    build:
+      context: .
+      dockerfile: docker-nginx
+    depends_on:
+      - client
+      - server
+    networks:
+      - fronttier
+      - backtier
+    ports:
+      - 80:80
+      - 443:443
+    restart: always
+
+  server:
+    build:
+      context: .
+      dockerfile: docker-server
+    depends_on:
+      - mongo
+    networks:
+      - backtier
+    volumes:
+      - content:/codious_maximus/content
+
+volumes:
+  content:
+  db:

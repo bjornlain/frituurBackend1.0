@@ -1,0 +1,17 @@
+:host {
+  background-color: rgb(var(--color-white)); border-bottom: solid .0625rem rgb(var(--color-neutral-250)); display: flex; line-height: 3rem;
+
+  > a.brand {
+    padding: 0 var(--spacer-sm); width: 16.3125rem;
+    > img { height: auto; width: 2rem; }
+    > span { color: rgb(var(--color-primary)); font-weight: var(--font-weight-extra); margin-left: var(--spacer-sm); }
+    &:hover { background-color: rgb(var(--color-neutral-100)); }
+  }
+
+  > nav { margin-left: auto; padding: 0 var(--spacer-sm); }
+}
+
+:host(.collapsed) > a.brand {
+  width: 3.0625rem;
+  > span { display: none; }
+}

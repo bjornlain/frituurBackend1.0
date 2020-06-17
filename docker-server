@@ -1,0 +1,11 @@
+FROM node:alpine
+RUN apk update && apk upgrade
+
+WORKDIR /codious_maximus
+COPY . .
+
+RUN npm run install:server
+
+EXPOSE 4100
+
+CMD [ "npm", "run", "server:prod" ]

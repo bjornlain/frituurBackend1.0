@@ -1,0 +1,248 @@
+paths:
+  /projects.avatar:
+    post:
+      description: Change the avatar of a project
+      requestBody:
+        description: A JSON object containing the Id of the project which avatar needs to be updated, a file upload for the avatar that needs to be set
+        content:
+          application/json:
+            schema:
+              properties:
+                id:
+                  type: string
+          image/png:
+            schema:
+              type: string
+              format: binary
+      responses:
+        200:
+          description: Avatar for project is updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        400:
+          $ref: '#/components/responses/FourZeroZero'
+        401:
+          $ref: '#/components/responses/FourZeroOne'
+        403:
+          $ref: '#/components/responses/FourZeroThree'
+        404:
+          $ref: '#/components/responses/FourZeroFour'
+        5XX:
+          $ref: '#/components/responses/FiveHundred'
+      security:
+        - bearer: []
+      tags:
+        - Projects
+
+  /project.categories:
+    get:
+      description: Get a list of all categories
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        401:
+          $ref: '#/components/responses/FourZeroOne'
+        403:
+          $ref: '#/components/responses/FourZeroThree'
+        5XX:
+          $ref: '#/components/responses/FiveHundred'
+      security:
+        - bearer: []
+      tags:
+        - Projects
+
+  /projects.create:
+    post:
+      description: Create a new project
+      requestBody:
+        description: A JSON object containing a Project object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+      responses:
+        201:
+          description: Project is created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        400:
+          $ref: '#/components/responses/FourZeroZero'
+        401:
+          $ref: '#/components/responses/FourZeroOne'
+        403:
+          $ref: '#/components/responses/FourZeroThree'
+        5XX:
+          $ref: '#/components/responses/FiveHundred'
+      security:
+        - bearer: []
+      tags:
+        - Projects
+
+  /projects.delete:
+    post:
+      descriptions: Delete a project
+      requestBody:
+        description: A JSON object containing the Id of the project that needs to be deleted
+        content:
+          application/json:
+            schema:
+              properties:
+                id:
+                  type: string
+      responses:
+        204:
+          description: Project is deleted
+        400:
+          $ref: '#/components/responses/FourZeroZero'
+        401:
+          $ref: '#/components/responses/FourZeroOne'
+        403:
+          $ref: '#/components/responses/FourZeroThree'
+        404:
+          $ref: '#/components/responses/FourZeroFour'
+        5XX:
+          $ref: '#/components/responses/FiveHundred'
+      security:
+        - bearer: []
+      tags:
+        - Projects
+
+  /project.info:
+    get:
+      description: Get details of a project
+      parameters:
+        - in: query
+          name: id
+          description: The Id of the project to get details of
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        400:
+          $ref: '#/components/responses/FourZeroZero'
+        401:
+          $ref: '#/components/responses/FourZeroOne'
+        403:
+          $ref: '#/components/responses/FourZeroThree'
+        404:
+          $ref: '#/components/responses/FourZeroFour'
+        5XX:
+          $ref: '#/components/responses/FiveHundred'
+      security:
+        - bearer: []
+      tags:
+        - Projects
+
+  /project.list:
+    get:
+      description: Get a list of projects
+      parameters:
+        - in: query
+          name: sort
+          description: The sort order
+          schema:
+            type: string
+        - in: query
+          name: limit
+          description: The number of items
+          schema:
+            type: string
+        - in: query
+          name: skip
+          description: The number of items to skip
+          schema:
+            type: string
+        - in: query
+          name: search
+          description: The search term
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+        401:
+          $ref: '#/components/responses/FourZeroOne'
+        403:
+          $ref: '#/components/responses/FourZeroThree'
+        5XX:
+          $ref: '#/components/responses/FiveHundred'
+      security:
+        - bearer: []
+      tags:
+        - Projects
+
+  /project.kinds:
+    get:
+      description: Get a list of all different kinds of projects
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        401:
+          $ref: '#/components/responses/FourZeroOne'
+        403:
+          $ref: '#/components/responses/FourZeroThree'
+        5XX:
+          $ref: '#/components/responses/FiveHundred'
+      security:
+        - bearer: []
+      tags:
+        - Projects
+
+  /project.update:
+    post:
+      description: Updates a project
+      requestBody:
+        description: JSON object containing a Project object, Required in this object is the Id of the project that needs to be updated
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+      responses:
+        200:
+          description: Employee is updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        400:
+          $ref: '#/components/responses/FourZeroZero'
+        401:
+          $ref: '#/components/responses/FourZeroOne'
+        403:
+          $ref: '#/components/responses/FourZeroThree'
+        404:
+          $ref: '#/components/responses/FourZeroFour'
+        5XX:
+          $ref: '#/components/responses/FiveHundred'
+      security:
+        - bearer: []
+      tags:
+        - Projects

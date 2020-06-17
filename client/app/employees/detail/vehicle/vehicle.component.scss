@@ -1,0 +1,59 @@
+:host {
+
+    >ul {
+
+        display       : flex;
+        flex-direction: row;
+        align-items   : center;
+        flex          : 1;
+
+        >li {
+
+            padding         : 1rem;
+            background-color: #FFFFFF;
+            flex            : 1;
+            list-style      : none;
+
+            .dGroup {
+
+                margin-top: 1rem;
+
+                .pHeader {
+                    opacity: 0.5;
+                }
+
+                .pBrand {
+                    font-size: 2rem;
+                }
+
+                p:not(.pHeader) {
+
+                    font-weight: 800;
+                }
+            }
+        }
+    }
+
+    a#aAdd {
+
+        background-color: rgba(var(--color-primary));
+        padding         : 1.5rem 0;
+        display         : flex;
+        flex-direction  : row;
+        align-items     : center;
+        justify-content : center;
+        color           : #FFFFFF;
+
+        >i {
+
+            font-size: 1.5rem;
+        }
+
+        >p {
+
+            font-weight   : 800;
+            text-transform: uppercase;
+            margin-left   : 1rem;
+        }
+    }
+}

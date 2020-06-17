@@ -1,0 +1,33 @@
+:host {
+  display: block; position: relative;
+
+  > button {
+    align-items: center; display: flex; white-space: nowrap;
+
+    &::after, &::before { font-family: 'Font Awesome 5 Pro'; font-weight: 300; }
+
+    &.down::after { content: '\f078'; margin-left: var(--spacer-xs); }
+    &.left::before { content: '\f053'; margin-right: var(--spacer-xs); }
+    &.right::after { content: '\f054'; margin-left: var(--spacer-xs); }
+    &.up::after { content: '\f077'; margin-left: var(--spacer-xs); }
+
+    ~ div { position: absolute; z-index: 1; }
+    ~ div.right { right: 0; }
+
+    &.left ~ div { right: 100%; top: 0; }
+    &.right ~ div { left: 100%; top: 0; }
+    &.up ~ div { bottom: 100%; }
+  }
+
+  ::ng-deep ul[dropdown-menu] {
+    background-color: rgb(var(--color-white)); border-radius: var(--border-radius-base); box-shadow: var(--box-shadow);
+    line-height: 1.5rem; list-style: none; min-width: 13.875rem; padding: var(--spacer-sm) 0; white-space: nowrap;
+
+    .divider { background-color: rgb(var(--color-neutral-250)); height: .0625rem; margin: var(--spacer-xs) var(--spacer-sm); }
+
+    i { font-size: 1rem; margin-right: var(--spacer-sm); text-align: center; width: 1.5rem; }
+
+    > li > * { padding: var(--spacer-xs) var(--spacer-sm); text-align: left; width: 100%; }
+    > li > *:hover { background-color: rgb(var(--color-neutral-100)); }
+  }
+}

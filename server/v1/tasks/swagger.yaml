@@ -1,0 +1,264 @@
+paths:
+  /tasks.create:
+    post:
+      description: Create an task
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        201:
+          description: Task is created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        401:
+          $ref: '#/components/responses/FourZeroOne'
+        403:
+          $ref: '#/components/responses/FourZeroThree'
+        5XX:
+          $ref: '#/components/responses/FiveHundred'
+      security:
+        - bearer: []
+      tags:
+        - Tasks
+
+  /tasks.delete:
+    post:
+      descriptions: Delete an task
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                _id:
+                  type: string
+                  format: bson
+      responses:
+        204:
+          description: Task is deleted
+        400:
+          $ref: '#/components/responses/FourZeroZero'
+        401:
+          $ref: '#/components/responses/FourZeroOne'
+        403:
+          $ref: '#/components/responses/FourZeroThree'
+        404:
+          $ref: '#/components/responses/FourZeroFour'
+        5XX:
+          $ref: '#/components/responses/FiveHundred'
+      security:
+        - bearer: []
+      tags:
+        - Tasks
+
+  /tasks.info:
+    get:
+      description: Get an task
+      parameters:
+        - in: query
+          name: id
+          description: The ID of the task
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        401:
+          $ref: '#/components/responses/FourZeroOne'
+        403:
+          $ref: '#/components/responses/FourZeroThree'
+        404:
+          $ref: '#/components/responses/FourZeroFour'
+        5XX:
+          $ref: '#/components/responses/FiveHundred'
+      security:
+        - bearer: []
+      tags:
+        - Tasks
+
+  /tasks.kinds:
+    get:
+      description: Get task kinds
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                    - bug
+                    - epic
+                    - story
+                    - sub-task
+                    - task
+        401:
+          $ref: '#/components/responses/FourZeroOne'
+        403:
+          $ref: '#/components/responses/FourZeroThree'
+        5XX:
+          $ref: '#/components/responses/FiveHundred'
+      security:
+        - bearer: []
+      tags:
+        - Tasks
+
+  /tasks.list:
+    get:
+      description: Get a list of tasks
+      parameters:
+        - in: query
+          name: sort
+          description: The sort order
+          schema:
+            type: string
+        - in: query
+          name: limit
+          description: The number of items
+          schema:
+            type: string
+        - in: query
+          name: skip
+          description: The number of items to skip
+          schema:
+            type: string
+        - in: query
+          name: search
+          description: The search term
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Task'
+        401:
+          $ref: '#/components/responses/FourZeroOne'
+        403:
+          $ref: '#/components/responses/FourZeroThree'
+        5XX:
+          $ref: '#/components/responses/FiveHundred'
+      security:
+        - bearer: []
+      tags:
+        - Tasks
+
+  /tasks.priorities:
+    get:
+      description: Get task priorities
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                    - high
+                    - highest
+                    - low
+                    - lowest
+                    - medium
+      security:
+        - bearer: []
+      tags:
+        - Tasks
+
+  /tasks.resolutions:
+    get:
+      description: Get task resolutions
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                    - done
+                    - duplicate
+                    - fixed
+                    - incomplete
+                    - cant-reproduce
+                    - unresolved
+                    - wont-do
+                    - wont-fix
+      security:
+        - bearer: []
+      tags:
+        - Tasks
+
+  /tasks.statuses:
+    get:
+      description: Get comment statuses
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                    - acceptance
+                    - closed
+                    - done
+                    - open
+                    - in-progress
+                    - reopened
+                    - resolved
+                    - review
+                    - todo
+      security:
+        - bearer: []
+      tags:
+        - Tasks
+
+  /tasks.update:
+    post:
+      description: Update an task
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        200:
+          description: Task is updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        400:
+          $ref: '#/components/responses/FourZeroZero'
+        401:
+          $ref: '#/components/responses/FourZeroOne'
+        403:
+          $ref: '#/components/responses/FourZeroThree'
+        404:
+          $ref: '#/components/responses/FourZeroFour'
+        5XX:
+          $ref: '#/components/responses/FiveHundred'
+      security:
+        - bearer: []
+      tags:
+        - Tasks

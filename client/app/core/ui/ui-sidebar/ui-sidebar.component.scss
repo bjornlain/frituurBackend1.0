@@ -1,0 +1,50 @@
+:host > ul {
+  background-color: rgb(var(--color-neutral-200)); border-right: solid .0625rem rgb(var(--color-neutral-250)); display: flex;
+  flex-direction: column; height: calc(100vh - 3.0625rem); list-style: none; transition: width .25s; width: 16.3125rem;
+
+  .divider { background-color: rgb(var(--color-neutral-350)); height: .0625rem; margin: var(--spacer-xs) var(--spacer-sm); }
+
+  a, li { &.active::before { bottom: 0; content: ''; left: 0; position: absolute; top: 0; width: .1875rem; } }
+
+  a {
+    display: flex; padding: var(--spacer-sm);
+    > span { margin-left: var(--spacer-sm); }
+    &.active { background-color: rgb(var(--color-neutral-300)); font-weight: var(--font-weight-bold); position: relative; }
+    &.active::before { background-color: rgb(var(--color-primary)); }
+  }
+
+  button { max-width: 2.5rem; padding: var(--spacer-md); &:hover { color: rgb(var(--color-primary)); } }
+  i { font-size: 1rem; line-height: 1.5rem; text-align: center; width: 1.5rem; }
+
+  > li {
+    position: relative;
+    > a { padding: var(--spacer-md) var(--spacer-sm); }
+    > a > i { font-size: var(--font-size-lg); width: 2rem; }
+    > ul { display: none; list-style: none; }
+    &:hover { background-color: rgb(var(--color-neutral-300)); }
+    &:nth-last-child(2) { margin-top: auto; }
+    &:first-child, &:last-child { display: flex; justify-content: flex-end; > * { flex-grow: 1; } }
+  }
+
+  > li.active {
+    background-color: rgb(var(--color-neutral-300));
+    > a { font-weight: var(--font-weight-bold); }
+    > ul { display: block; }
+    > ul > li:first-child { display: none; }
+    > ul > li > a > i { width: 2rem; }
+    &::before { background-color: rgb(var(--color-neutral-600)); }
+  }
+
+  > li:not(.active):hover > ul {
+    background-color: rgb(var(--color-white)); border-radius: var(--border-radius-base); box-shadow: var(--box-shadow); display: block;
+    left: 100%; min-width: 13.875rem; padding: var(--spacer-sm) 0; position: absolute; top: 0; white-space: nowrap; z-index: 1;
+    > li:first-child { font-weight: var(--font-weight-bold); }
+    > li:first-child, > li > a { padding: var(--spacer-xs) var(--spacer-sm); }
+    > li > a:hover { background-color: rgb(var(--color-neutral-100)); }
+  }}
+
+:host(.collapsed) > ul {
+  width: 3.0625rem;
+  a > span { display: none; }
+  > li:not(.active):hover > ul > li > a > span { display: block; }
+}

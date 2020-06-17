@@ -1,0 +1,9 @@
+<select
+  [attr.name]="field.key"
+  [attr.id]="field.id"
+  [formControl]="formControl"
+  [formlyAttributes]="field">
+  <option *ngFor="let option of to.options" [value]="option.value">
+    {{option.label | translate}}
+  </option>
+</select>

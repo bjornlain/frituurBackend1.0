@@ -1,0 +1,8 @@
+<ng-container [ngSwitch]="type">
+  <ng-container *ngSwitchCase="'email'">
+    <a class="ui-table-template-email" href="mailto:{{ data }}">{{ data }}</a>
+  </ng-container>
+  <ng-container *ngSwitchDefault>
+    {{ data }}
+  </ng-container>
+</ng-container>

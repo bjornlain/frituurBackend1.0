@@ -1,0 +1,46 @@
+name: 'Codious.Maximus (Azure Pipelines)'
+
+trigger:
+- develop
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '12.x'
+  displayName: 'install node.js'
+
+- script: |
+    npm run install:server
+  displayName: 'server:install'
+
+- script: |
+    npm run test
+  displayName: 'server:test'
+
+- task: npmAuthenticate@0
+  inputs:
+    workingFile: '$(Build.SourcesDirectory)/client/.npmrc'
+    customEndpoint: 'NPM ngrx'
+
+- script: |
+    npm run install:client
+  displayName: 'client:install'
+
+- script: |
+    npm run lint:client
+  displayName: 'client:lint'
+
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
+  inputs:
+    testRunner: JUnit
+    testResultsFiles: '**/junit.xml'
+
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: Cobertura
+    reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*coverage.xml'

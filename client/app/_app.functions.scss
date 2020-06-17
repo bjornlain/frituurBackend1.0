@@ -1,0 +1,41 @@
+// CONSTANTS
+$encoding-reference: (('<','%3C'), ('>','%3E'), ('"','\''), ('#','%23'), ('&','%26'));
+
+
+// FUNCTIONS
+@function mix2rgb($color1, $color2: black, $percentage: 10%) {
+  $mixed: mix($color2, rgb($color1), $percentage);
+  @return red($mixed) green($mixed) blue($mixed);
+}
+
+@function palette($name, $color, $palette: (), $steps: 19) {
+  @if ($color == 0) {
+    @return $palette;
+  }
+  $steps: ($steps + 1) / 2;
+  @for $i from 1 through ($steps - 1) {
+    $key: '#{$name}-' + if($i * 500 / $steps < 100, '0', '') + '#{$i * 500 / $steps}';
+    $palette: map_merge($palette, (#{$key}: mix2rgb($color, white, percentage(($steps - $i) / $steps))));
+  }
+  $palette: map_merge($palette, ('#{$name}-500': $color));
+  @for $i from 1 through ($steps - 1) {
+    $key: '#{$name}-#{($i * 500 / $steps) + 500}';
+    $palette: map_merge($palette, (#{$key}: mix2rgb($color, black, percentage($i / $steps))));
+  }
+  @return $palette;
+}
+
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  @return $string;
+}
+
+@function svg-encode($svg) {
+  @each $char, $encoded in $encoding-reference {
+    $svg: str-replace($svg, $char, $encoded);
+  }
+  @return 'data:image/svg+xml,' + $svg;
+}

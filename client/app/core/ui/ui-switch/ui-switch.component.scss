@@ -1,0 +1,17 @@
+:host > button {
+  background-color: rgb(var(--color-white)); border: solid .0625rem rgb(var(--color-neutral-600));
+  border-radius: .625rem; display: flex; height: 1.25rem; padding: 0 .1875rem; width: 2.5rem;
+
+  span {
+    background-color: rgb(var(--color-neutral-600)); border-radius: .75rem;
+    display: block; height: .75rem; transition: all .25s; width: .75rem;
+  }
+
+  &.active {
+    background-color: rgb(var(--color-primary)); border-color: rgb(var(--color-primary));
+    &:hover { background-color: rgb(var(--color-primary-dark)); border-color: rgb(var(--color-primary-dark)); }
+    &, &:hover { span { background-color: rgb(var(--color-white)); margin-left: 1.25rem; } }
+  }
+
+  &:hover { border-color: rgb(var(--color-neutral-750)); span { background-color: rgb(var(--color-neutral-750)); } }
+}

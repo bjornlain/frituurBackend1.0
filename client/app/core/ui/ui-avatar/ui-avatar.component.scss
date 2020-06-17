@@ -1,0 +1,36 @@
+$avatar-bg-color: rgb(var(--color-primary));
+$avatar-sizes: (
+  'sm': ('size': 2rem, 'borderSize': .1rem),
+  'lg': ('size': 6rem, 'borderSize': .3rem)
+);
+
+:host {
+  > img,
+  > div {
+    display: flex;
+    width: 4rem;
+    height: 4rem;
+    align-items: center;
+    justify-content: center;
+    border: .2rem solid $avatar-bg-color;
+    border-radius: 50%;
+    box-shadow: 0 0 .1rem 0 black inset, 0 0 .1rem 0 black;
+  }
+
+  > div {
+    background-color: $avatar-bg-color;
+    color: rgb(var(--color-white));
+  }
+}
+
+@each $key, $value in $avatar-sizes {
+  :host(.ui-avatar--#{$key}) {
+    > img,
+    > div {
+      width: map-get($value, 'size');
+      height: map-get($value, 'size');
+      border-width: map-get($value, 'borderSize');
+      font-size: var(--font-size-#{$key});
+    }
+  }
+}

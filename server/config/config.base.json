@@ -1,0 +1,59 @@
+{
+  "jwt": {
+    "expires_in": 30000,
+    "issuer": "Frituur",
+    "secret": "yHYOqIYGxubYDA1xGSZaDTJukmT5Mh2k"
+  },
+
+  "mongoose": {
+    "options": { "useCreateIndex": true, "useNewUrlParser": true, "useUnifiedTopology": true },
+    "uri": "mongodb://localhost:27017/frituurDatabase"
+  },
+
+  "multer": {
+    "attachments": {
+      "limits": { "fieldSize": "16MB" },
+      "mimeTypes": ["application/pdf", "image/gif", "image/jpeg", "image/png"]
+    },
+    "avatars": {
+      "limits": { "fieldSize": "4MB" },
+      "mimeTypes": ["image/gif", "image/jpeg", "image/png"]
+    }
+  },
+
+  "nodemailer": {
+    "message": {
+      "from": "Maximus <no-reply@maximus.io>"
+    },
+    "parameters": {
+      "base": "http://localhost:4100"
+    },
+    "transporter": {
+      "host": "localhost",
+      "port": 1025
+    }
+  },
+
+  "paths": {
+    "attachments": "./content/attachments",
+    "avatars": "./content/avatars",
+    "temporary": "./content/temporary"
+  },
+
+  "settings": {
+    "avatar": 256,
+    "page_limit": 1000
+  },
+
+  "swagger": {
+    "info": {
+      "description": "This is the documentation of the Frituur REST API endpoints.",
+      "title": "Frituur bestellen",
+      "version": "1.0.0"
+    },
+    "openapi": "3.0.2",
+    "servers": [
+      { "description": "Development", "url": "http://localhost:4100/v1" }
+    ]
+  }
+}

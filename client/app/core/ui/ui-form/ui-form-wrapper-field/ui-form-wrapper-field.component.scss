@@ -1,0 +1,7 @@
+:host {
+  fieldset { all: unset; width: 100%; }
+  formly-validation-message { color: rgb(var(--color-error)); }
+}
+
+:host(.has-columns) { display: grid; grid-gap: var(--spacer-base); grid-template-columns: 3fr 7fr; }
+:host(.has-offset) { > fieldset { grid-column: 2; } }

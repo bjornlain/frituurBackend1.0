@@ -1,0 +1,4 @@
+{
+  "development": "localhost/frituurDatabase",
+  "production": "mongo/frituurDatabase"
+}

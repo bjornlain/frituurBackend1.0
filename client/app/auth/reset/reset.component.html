@@ -1,0 +1,4 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+  <ui-form [fields]="fields" [model]="model"></ui-form>
+  <ui-button [disabled]="form.invalid" type="submit">{{'submit' | translate}}</ui-button>
+</form>

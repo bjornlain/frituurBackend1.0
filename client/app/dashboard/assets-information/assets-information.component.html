@@ -1,0 +1,18 @@
+
+<div *ngFor="let asset of assetArray" >
+        <div class="asset">
+            <img class="image" [src]="asset.avatar">
+            <div class="assetInformation">
+                <p class="info">{{asset.name}}</p>
+                <p class="info">{{asset.serial_number}}</p>
+                <p class="inUse">In use by</p>
+                <p class="inUse">{{asset.inUseByEmployees}} of 18 employees</p>
+            </div>
+        </div>
+    </div>
+<div id="addAsset">
+    <div id="plusAsset">
+        <img class="plusIcon" src="../../../assets/img/plus-icon.svg">
+        <p>Add new asset</p>
+    </div>
+</div>

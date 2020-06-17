@@ -1,0 +1,12 @@
+<form class="container" [formGroup]="form" (ngSubmit)="onSubmit($event)">
+  <div class="form">
+    <ui-form [fields]="fields" [model]="model"></ui-form>
+  </div>
+  <div class="actions">
+    <button type="submit" class="submit" [disabled]="form.invalid">
+      {{ 'submit' | translate }}
+      <i class="fa fa-save"></i>
+    </button>
+    <button type="button" class="cancel" (click)="cancel()">{{ 'cancel' | translate }}</button>
+  </div>
+</form>

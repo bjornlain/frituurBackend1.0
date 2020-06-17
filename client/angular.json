@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "defaultProject": "codious.maximus.client",
+  "projects": {
+    "codious.maximus.client": {
+      "projectType": "application",
+      "root": "",
+      "sourceRoot": ".",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "configurations": {
+            "production": {
+              "aot": true,
+              "buildOptimizer": true,
+              "extractCss": true,
+              "fileReplacements": [{ "replace": "environments/environment.ts", "with": "environments/environment.prod.ts" }],
+              "optimization": true,
+              "sourceMap": false
+            }
+          },
+          "options": {
+            "assets": ["assets"],
+            "index": "index.html",
+            "main": "app/main.ts",
+            "outputPath": "../dist",
+            "polyfills": "app/polyfills.ts",
+            "styles": ["app/app.module.scss"],
+            "tsConfig": "tsconfig.json"
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "codious.maximus.client:build:production"
+            }
+          },
+          "options": {
+            "browserTarget": "codious.maximus.client:build"
+          }
+        }
+      }
+    }
+  }
+}

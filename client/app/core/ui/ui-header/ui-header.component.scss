@@ -1,0 +1,13 @@
+:host {
+  display: block;
+  header { 
+          display: flex; margin: 0 var(--spacer-md); 
+          padding: var(--spacer-md); 
+        }
+  h1 { font-size: var(--font-size-lg); font-weight: var(--font-weight-bold); }
+}
+
+:host(.large) {
+  header { padding: var(--spacer-xl); }
+  h1 { font-size: var(--font-size-xl); }
+}

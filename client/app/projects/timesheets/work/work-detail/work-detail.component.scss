@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+
+  .form,
+  .actions {
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    .submit {
+      width: 100%;
+      flex-grow: 1;
+      background-color: rgb(var(--color-primary));
+      color: rgb(var(--color-white));
+      text-transform: uppercase;
+      vertical-align: middle;
+      text-align: center;
+      margin: 0 calc(var(--spacer-xl) * -1);
+    }
+
+    .cancel {
+      color: rgb(var(--color-error));
+      padding: var(--spacer-sm);
+    }
+  }
+}

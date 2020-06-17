@@ -1,0 +1,5 @@
+<ui-form-label *ngIf="hasLabel" [label]="to.label"></ui-form-label>
+<fieldset>
+  <ng-container #fieldComponent></ng-container>
+  <formly-validation-message *ngIf="showError" [field]="field"></formly-validation-message>
+</fieldset>

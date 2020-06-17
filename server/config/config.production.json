@@ -1,0 +1,45 @@
+{
+  "mongoose": {
+    "options": { "useCreateIndex": true, "useNewUrlParser": true, "useUnifiedTopology": true },
+    "uri": "mongodb://mongo:27017/frituurDatabase"
+  },
+
+  "nodemailer": {
+    "message": {
+      "from": "Maximus <no-reply@maximus.codious.io>"
+    },
+    "parameters": {
+      "base": "https://maximus.codious.io"
+    },
+    "transporter": {
+      "auth": {
+        "user": "",
+        "pass": ""
+      },
+      "host": "smtp.office365.com",
+      "port": 587,
+      "secure": false,
+      "tls": {
+        "ciphers": "SSLv3"
+      }
+    }
+  },
+
+  "paths": {
+    "attachments": "/codious_maximus/content/attachments",
+    "avatars": "/codious_maximus/content/avatars",
+    "temporary": "/codious_maximus/content/temporary"
+  },
+
+  "swagger": {
+    "info": {
+      "description": "This is the documentation of the Codious Maximus REST API endpoints.",
+      "title": "Codious Maximus",
+      "version": "1.0.0"
+    },
+    "openapi": "3.0.2",
+    "servers": [
+      { "description": "Production", "url": "https://maximus.codious.io:4100/v1" }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+<div class="action-bar">
+  <ui-table-filter *ngIf="filterable" [rows]="allData" (onFilter)="onFilter($event)"></ui-table-filter>
+  <ui-table-count *ngIf="countLabel" [current]="filteredData.length" [total]="totalRows" [label]="countLabel"></ui-table-count>
+</div>
+
+<div class="ui-table" [ngStyle]="{ 'grid-template-columns': getColumnTemplating() }" (scroll)="onScroll($event)">
+  <ng-container *ngIf="showHeaders">
+    <div *ngFor="let header of headers" class="ui-table-header" [class.hoverable]="header.isSortable" (click)="toggleSort(header)">
+      <p>
+        {{ header.label | translate }}
+      </p>
+
+      <i *ngIf="(currentSort | async)?.header.key === header.key" class="fad fa-caret-{{ (currentSort | async).direction === -1 ? 'up' : 'down' }}"></i>
+    </div>
+  </ng-container>
+
+  <ng-container *ngFor="let row of filteredData; let i = index">
+    <div *ngFor="let header of headers" class="ui-table-cell" [class.ui-table-cell--condensed]="header.condensed" [class.backgrounded]="i % 2 && oddBackgrounded">
+      <ng-container *ngTemplateOutlet="header.template || valueTemplate; context: { $implicit: row }"></ng-container>
+
+      <ng-template #valueTemplate>{{ getValue(row, header.key) }}</ng-template>
+    </div>
+  </ng-container>
+</div>

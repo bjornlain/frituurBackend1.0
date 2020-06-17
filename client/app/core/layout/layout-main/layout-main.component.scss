@@ -1,0 +1,21 @@
+:host {
+
+  height        : 100vh;
+  display       : flex;
+  flex-direction: column;
+
+  main {
+
+    display : flex;
+    overflow: hidden;
+  }
+
+  ::ng-deep router-outlet~* {
+
+    flex          : 1;
+    padding       : var(--spacer-md);
+    padding-bottom: 0;
+    display       : flex;
+    flex-direction: column;
+  }
+}

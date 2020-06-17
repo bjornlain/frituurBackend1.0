@@ -1,0 +1,7 @@
+<ng-container *ngIf="url; else initialsTemplate">
+  <img [srcset]="url" />
+</ng-container>
+
+<ng-template #initialsTemplate>
+  <div>{{initials}}</div>
+</ng-template>

@@ -1,0 +1,9 @@
+:host > button {
+  background-color: rgb(var(--color-primary)); border-radius: var(--border-radius-sm);
+  color: rgb(var(--color-white)); font-weight: 600; padding: .25rem .75rem;
+
+  &:disabled { pointer-events: none; }
+  &:hover { background-color: rgb(var(--color-primary-dark)); color: rgb(var(--color-white)); }
+
+  ::ng-deep i { margin-right: .5rem; }
+}

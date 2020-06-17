@@ -1,0 +1,159 @@
+paths:
+  /contracts.create:
+    post:
+      description: Create an contract
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contract'
+      responses:
+        201:
+          description: Contract is created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contract'
+        401:
+          $ref: '#/components/responses/FourZeroOne'
+        403:
+          $ref: '#/components/responses/FourZeroThree'
+        5XX:
+          $ref: '#/components/responses/FiveHundred'
+      security:
+        - bearer: []
+      tags:
+        - Contracts
+
+  /contract.delete:
+    post:
+      descriptions: Delete an contract
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                _id:
+                  type: string
+                  format: bson
+      responses:
+        204:
+          description: Contract is deleted
+        400:
+          $ref: '#/components/responses/FourZeroZero'
+        401:
+          $ref: '#/components/responses/FourZeroOne'
+        403:
+          $ref: '#/components/responses/FourZeroThree'
+        404:
+          $ref: '#/components/responses/FourZeroFour'
+        5XX:
+          $ref: '#/components/responses/FiveHundred'
+      security:
+        - bearer: []
+      tags:
+        - Contracts
+
+  /contracts.info:
+    get:
+      description: Get an contract
+      parameters:
+        - in: query
+          name: id
+          description: The ID of the contract
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contract'
+        401:
+          $ref: '#/components/responses/FourZeroOne'
+        403:
+          $ref: '#/components/responses/FourZeroThree'
+        404:
+          $ref: '#/components/responses/FourZeroFour'
+        5XX:
+          $ref: '#/components/responses/FiveHundred'
+      security:
+        - bearer: []
+      tags:
+        - Contracts
+
+  /contracts.list:
+    get:
+      description: Get a list of contracts
+      parameters:
+        - in: query
+          name: sort
+          description: The sort order
+          schema:
+            type: string
+        - in: query
+          name: limit
+          description: The number of items
+          schema:
+            type: string
+        - in: query
+          name: skip
+          description: The number of items to skip
+          schema:
+            type: string
+        - in: query
+          name: search
+          description: The search term
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Contract'
+        401:
+          $ref: '#/components/responses/FourZeroOne'
+        403:
+          $ref: '#/components/responses/FourZeroThree'
+        5XX:
+          $ref: '#/components/responses/FiveHundred'
+      security:
+        - bearer: []
+      tags:
+        - Contracts
+
+  /contracts.update:
+    post:
+      description: Update an contract
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contract'
+      responses:
+        200:
+          description: Contract is updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contract'
+        400:
+          $ref: '#/components/responses/FourZeroZero'
+        401:
+          $ref: '#/components/responses/FourZeroOne'
+        403:
+          $ref: '#/components/responses/FourZeroThree'
+        404:
+          $ref: '#/components/responses/FourZeroFour'
+        5XX:
+          $ref: '#/components/responses/FiveHundred'
+      security:
+        - bearer: []
+      tags:
+        - Contracts

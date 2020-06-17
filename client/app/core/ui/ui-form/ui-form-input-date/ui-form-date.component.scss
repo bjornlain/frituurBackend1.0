@@ -1,0 +1,16 @@
+:host ::ng-deep {
+  input {
+    background-color: rgb(var(--color-neutral-100));
+    display: block;
+    width: 100%;
+
+    &:disabled {
+      border-color: white;
+      font-weight: var(--font-weight-bold);
+    }
+  }
+  .myDpSelector {
+    // added important because the top is auto calculated by the angular-mydatepicker component
+    top: 2rem !important;
+  }
+}

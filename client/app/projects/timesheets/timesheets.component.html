@@ -1,0 +1,32 @@
+<div>Time registration</div>
+<div class="container">
+  <div class="timesheet-overview">
+    <div class="datepicker">
+      <ui-card>
+        <ui-datepicker (dateRangeChanged)="onDateRangeChanged($event)" [rangeSelectionEnabled]="true"></ui-datepicker>
+      </ui-card>
+    </div>
+    <overview></overview>
+  </div>
+  <div class="timesheet-detail">
+    <ui-card>
+      <div class="header">
+        <h3>Work</h3>
+        <div class="selection">
+          <div class="month">
+            {{ getFormattedMonthYear() }}
+          </div>
+          <div class="selected-days">Selected day(s): {{ getSelectedDays() }}</div>
+        </div>
+      </div>
+      <div class="work-list" *ngIf="!showWorkDetail; else work_detail">
+        <work-list [beginDate]="beginDate" [endDate]="endDate" (onEditEvent)="onProjectSelected($event)"></work-list>
+      </div>
+      <ng-template #work_detail>
+        <div class="work-detail">
+          <work-detail [beginDate]="beginDate" [endDate]="endDate" [project]="currentProject"  (cancelClicked)="onCancelWorkDetail()"></work-detail>
+        </div>
+      </ng-template>
+    </ui-card>
+  </div>
+</div>

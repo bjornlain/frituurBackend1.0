@@ -1,0 +1,8 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+  <ui-form [fields]="fields" [model]="model"></ui-form>
+  <ul class="list-unstyled">
+    <li><a routerLink="/forgot">{{'forgot' | translate}}</a></li>
+    <li><a routerLink="/reset">{{'reset' | translate}}</a></li>
+  </ul>
+  <ui-button [disabled]="form.invalid" type="submit">{{'submit' | translate}}</ui-button>
+</form>

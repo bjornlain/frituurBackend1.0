@@ -1,0 +1,38 @@
+<ui-header [title]="'employees' | translate"></ui-header>
+<ui-card>
+  <ui-table
+    *ngIf="dataset; else loader"
+    [headers]="headers"
+    [data]="data"
+    [filterable]="true"
+    [countLabel]="'employeesPl' | translate: { count: dataset.length }"
+    [totalRows]="dataset.length"
+    (reachedEnd)="loadData()"
+  ></ui-table>
+</ui-card>
+<a id="aAdd" (click)="openDialog()">
+  <i class="fad fa-plus-circle"></i>
+  <p>Add a new Employee</p>
+</a>
+
+<ng-template #avatarTemplate let-data>
+  <div class="spaced">
+    <ui-avatar [url]="'https://i.pravatar.cc/50?' + data.id" [name]="getName(data)" class="ui-avatar--sm"></ui-avatar>
+  </div>
+</ng-template>
+
+<ng-template #emailTemplate let-data>
+  <ui-table-template type="email" [data]="data.work_contact.email" class="spaced"></ui-table-template>
+</ng-template>
+
+<ng-template #nameTemplate let-data>
+  <a class="employeeName spaced" routerLink="/employees/detail/{{ data.id }}">{{ getName(data) }}</a>
+</ng-template>
+
+<ng-template #loader>
+  <div id="dLoader">
+    <div>
+      <ui-loader></ui-loader>
+    </div>
+  </div>
+</ng-template>

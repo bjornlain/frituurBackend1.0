@@ -1,0 +1,11 @@
+
+<div class="outerDiv">
+    <input type="text" placeholder="Search by name">
+    <div class="container" *ngFor="let employee of employeeList" >
+        <div class="employeeBox">
+            <ui-avatar [url]="'https://i.pravatar.cc/50?3'" [name]="employee.first_name" class="avatar ui-avatar--sm"></ui-avatar>
+            <p class="employeeName">{{employee.first_name}} {{employee.last_name}}</p>
+        </div>
+    </div>
+</div>
+

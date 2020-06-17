@@ -1,0 +1,25 @@
+<div class="container">
+  <div *ngFor="let workItem of workItems; let i = index" class="workItem" (click)="toggleIndex(i)">
+    <div class="workItemContent">
+      <div>
+        <div class="project">{{workItem.projectName}}</div>
+      </div>
+      <div class="time">{{formatMinutes(workItem.totalTime)}}</div>
+    </div>
+    <div class="detail" *ngIf="openIndex.includes(i)" [ngClass]="openIndex.includes(i) ? 'expand-panel' : '' ">
+      <div *ngFor="let project of workItem.projectData">
+        <div>- {{project.task}}</div>
+        <div>
+          <div>{{formatMinutes(project.time)}}</div>
+          <div (click)="onEdit(project)"><i class="far fa-ellipsis-v"></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="expand">
+      <div [ngClass]="openIndex.includes(i) ? 'rotate' : '' "></div>
+    </div>
+  </div>
+  <div class="addWorkItem"><!--(click)="addWorkItem()"-->
+    <img src="assets/img/plus-icon.svg" alt=""/>
+  </div>
+</div>

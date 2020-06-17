@@ -1,0 +1,159 @@
+paths:
+  /assets.create:
+    post:
+      description: Create an asset
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Asset'
+      responses:
+        201:
+          description: Asset is created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Asset'
+        401:
+          $ref: '#/components/responses/FourZeroOne'
+        403:
+          $ref: '#/components/responses/FourZeroThree'
+        5XX:
+          $ref: '#/components/responses/FiveHundred'
+      security:
+        - bearer: []
+      tags:
+        - Assets
+
+  /assets.delete:
+    post:
+      descriptions: Delete an asset
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                id:
+                  type: string
+                  format: bson
+      responses:
+        204:
+          description: Asset is deleted
+        400:
+          $ref: '#/components/responses/FourZeroZero'
+        401:
+          $ref: '#/components/responses/FourZeroOne'
+        403:
+          $ref: '#/components/responses/FourZeroThree'
+        404:
+          $ref: '#/components/responses/FourZeroFour'
+        5XX:
+          $ref: '#/components/responses/FiveHundred'
+      security:
+        - bearer: []
+      tags:
+        - Assets
+
+  /assets.info:
+    get:
+      description: Get an asset
+      parameters:
+        - in: query
+          name: id
+          description: The ID of the asset
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Asset'
+        401:
+          $ref: '#/components/responses/FourZeroOne'
+        403:
+          $ref: '#/components/responses/FourZeroThree'
+        404:
+          $ref: '#/components/responses/FourZeroFour'
+        5XX:
+          $ref: '#/components/responses/FiveHundred'
+      security:
+        - bearer: []
+      tags:
+        - Assets
+
+  /assets.list:
+    get:
+      description: Get a list of assets
+      parameters:
+        - in: query
+          name: sort
+          description: The sort order
+          schema:
+            type: string
+        - in: query
+          name: limit
+          description: The number of items
+          schema:
+            type: string
+        - in: query
+          name: skip
+          description: The number of items to skip
+          schema:
+            type: string
+        - in: query
+          name: search
+          description: The search term
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Asset'
+        401:
+          $ref: '#/components/responses/FourZeroOne'
+        403:
+          $ref: '#/components/responses/FourZeroThree'
+        5XX:
+          $ref: '#/components/responses/FiveHundred'
+      security:
+        - bearer: []
+      tags:
+        - Assets
+
+  /assets.update:
+    post:
+      description: Update an asset
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Asset'
+      responses:
+        200:
+          description: Asset is updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Asset'
+        400:
+          $ref: '#/components/responses/FourZeroZero'
+        401:
+          $ref: '#/components/responses/FourZeroOne'
+        403:
+          $ref: '#/components/responses/FourZeroThree'
+        404:
+          $ref: '#/components/responses/FourZeroFour'
+        5XX:
+          $ref: '#/components/responses/FiveHundred'
+      security:
+        - bearer: []
+      tags:
+        - Assets
