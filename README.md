@@ -1,3 +1,13 @@
+
+
+#### frituur application
+
+seed = npm run:seed dev
+mongodb server moet runnend zijn
+
+
+
+
 # Codious.Maximus
 
 [![Build Status](https://dev.azure.com/Codious/Codious.Maximus/_apis/build/status/Codious.Maximus?branchName=develop)](https://dev.azure.com/Codious/Codious.Maximus/_build/latest?definitionId=21&branchName=develop)
