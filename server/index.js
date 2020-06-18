@@ -38,8 +38,6 @@ Object.values(config.paths).forEach((p) => fs.mkdirp(p));
 
   if (process.env.NODE_ENV !== 'production') app.use(morgan('dev'));
 
-  app.use('/attachments', express.static(config.paths.attachments));
-  app.use('/avatars', express.static(config.paths.avatars));
 
   app.use('/api/v1', v1);
   app.use(errorhandler);

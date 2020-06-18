@@ -1,4 +1,0 @@
-<div>
-  <button [class.active]="tab.active" [class.disabled]="tab.disabled" (click)="select(tab)" *ngFor="let tab of tabs.toArray()" type="button">{{ tab.header | translate }}</button>
-</div>
-<ng-content></ng-content>

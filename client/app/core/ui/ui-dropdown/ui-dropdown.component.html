@@ -1,6 +1,0 @@
-<button class="{{ caretless ? '' : direction }}" (click)="toggle($event)" type="button">
-  <ng-content select="[dropdown-toggle]"></ng-content>
-</button>
-<div [class.right]="right" *ngIf="visible">
-  <ng-content select="ul[dropdown-menu]"></ng-content>
-</div>

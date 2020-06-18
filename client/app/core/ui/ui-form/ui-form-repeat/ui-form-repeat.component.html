@@ -1,5 +1,0 @@
-<div *ngFor="let field of field.fieldGroup; let index = index">
-  <formly-field [field]="field"></formly-field>
-  <button type="button" *ngIf="!to.readonly" (click)="remove(index)">-</button>
-</div>
-<button type="button" *ngIf="!to.readonly" (click)="add()">+</button>

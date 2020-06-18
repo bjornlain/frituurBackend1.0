@@ -1,7 +1,0 @@
-<ng-container *ngIf="to.addon; else inputTemplate">
-  <ui-form-input-group [icon]="to.addon?.icon" [prepend]="to.addon?.prepend" [template]="inputTemplate"></ui-form-input-group>
-</ng-container>
-
-<ng-template #inputTemplate>
-  <input [attr.autocomplete]="autocomplete" [class.invalid]="showError" [formControl]="formControl" [formlyAttributes]="field" [type]="field.type" />
-</ng-template>

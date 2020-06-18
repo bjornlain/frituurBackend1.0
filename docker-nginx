@@ -1,7 +1,0 @@
-FROM nginx:alpine
-RUN apk update && apk upgrade
-
-COPY maximus.codious.io.crt /etc/ssl/certs/maximus.codious.io.cert
-COPY maximus.codious.io.key /etc/ssl/private/maximus.codious.io.key
-
-COPY nginx.conf /etc/nginx/nginx.conf
