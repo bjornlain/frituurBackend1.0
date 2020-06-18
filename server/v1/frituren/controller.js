@@ -1,4 +1,5 @@
 // REQUIRES
+
 const config = require('../../config');
 const { query, trycatch } = require('../../utilities');
 const { Frituur } = require('../../models');
