@@ -11,5 +11,5 @@ const hourSchema = new mongoose.Schema({
 
 
 // CONSTRUCTOR
-var hourModel = mongoose.model('Hour', hourSchema);
+const hourModel = mongoose.model('Hour', hourSchema);
 module.exports = hourModel;

@@ -1,8 +1,7 @@
 // REQUIRES
-const moment = require('moment');
 const config = require('../../config');
-const { dates, query, trycatch } = require('../../utilities');
-const { Frituur} = require('../../models');
+const { query, trycatch } = require('../../utilities');
+const { Frituur } = require('../../models');
 
 
 // PUBLIC METHODS
@@ -25,7 +24,7 @@ module.exports.create = trycatch(async (req, res) => {
 module.exports.delete = trycatch(async (req, res) => {
   console.log(JSON.parse(req.body));
   if (!req.body) return res.status(400).end();
-  const frituur = await Frituur.findOneAndUpdate({ _id: JSON.parse(req.body)});
+  const frituur = await Frituur.findOneAndUpdate({ _id: JSON.parse(req.body) });
   return res.status(frituur ? 204 : 404).end();
 });
 
@@ -35,7 +34,6 @@ module.exports.list = trycatch(async (req, res) => {
     /* how to query =     .find(query.where(req, { deleted: false })) */
     .find(query.where(req))
     .populate('task', 'key summary')
-    .populate('user', 'avatar name')
     .sort(req.query.sort || 'created')
     .skip(+req.query.skip || 0)
     .limit(+req.query.limit < config.settings.page_limit ? +req.query.limit : config.settings.page_limit)

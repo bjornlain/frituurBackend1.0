@@ -1,0 +1,44 @@
+[
+  {
+    "_id": { "$oid": "59cf78e883680012b0438500" },
+    "deleted": false,
+    "name": "anonymous",
+    "permissions": [
+      { "action": "create", "attributes": "*", "possession": "any", "resource": "auth.forgot" },
+      { "action": "create", "attributes": "*", "possession": "any", "resource": "auth.invite" },
+      { "action": "create", "attributes": "*", "possession": "any", "resource": "auth.login" },
+      { "action": "create", "attributes": "*", "possession": "any", "resource": "auth.refresh" },
+      { "action": "create", "attributes": "*", "possession": "any", "resource": "auth.reset" },
+      { "action": "read", "attributes": "*", "possession": "any", "resource": "ping.info" }
+    ]
+  },
+  {
+    "_id": { "$oid": "59cf78e883680012b0438501" },
+    "deleted": false,
+    "extend": "users",
+    "name":
+    "administrators",
+    "permissions": [
+      { "action": "create", "attributes": "*", "possession": "any", "resource": "auth.forgot" },
+      { "action": "create", "attributes": "*", "possession": "any", "resource": "auth.invite" },
+      { "action": "create", "attributes": "*", "possession": "any", "resource": "auth.login" },
+      { "action": "create", "attributes": "*", "possession": "any", "resource": "auth.refresh" },
+      { "action": "create", "attributes": "*", "possession": "any", "resource": "auth.reset" },
+      { "action": "create", "attributes": "*", "possession": "any", "resource": "frituren.create" },
+      { "action": "create", "attributes": "*", "possession": "any", "resource": "frituren.delete" },
+      { "action": "read", "attributes": "*", "possession": "any", "resource": "frituren.list" },
+      { "action": "create", "attributes": "*", "possession": "any", "resource": "frituren.update" },
+      { "action": "read", "attributes": "*", "possession": "any", "resource": "users.list" }
+    ]
+  },
+  {
+    "_id": { "$oid": "59cf78e883680012b0438502" },
+    "deleted": false,
+    "extend": "anonymous",
+    "name": "users",
+    "permissions": [
+      { "action": "read", "attributes": "*", "possession": "any", "resource": "vehicles.brands" },
+      { "action": "read", "attributes": "*", "possession": "own", "resource": "vehicles.info" }
+    ]
+  }
+]

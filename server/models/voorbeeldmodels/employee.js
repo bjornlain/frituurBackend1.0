@@ -1,7 +1,7 @@
 // REQUIRES
 const mongoose = require('mongoose');
 
-const addressSchema = require('./address');
+const addressSchema = require('../address');
 
 
 // ENUMERATIONS

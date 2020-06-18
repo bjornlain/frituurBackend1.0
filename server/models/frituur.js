@@ -1,7 +1,6 @@
 // REQUIRES
 const mongoose = require('mongoose');
 
-
 // SCHEMA PROPERTIES
 const frituurSchema = new mongoose.Schema({
   name: { required: true, type: String },

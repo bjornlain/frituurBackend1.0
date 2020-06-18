@@ -1,34 +1,33 @@
 // REQUIRES
 const mongoose = require('mongoose');
 
-const addressSchema = require('./address');
-
+const addressSchema = require('../address');
 
 // ENUMERATIONS
 const Kinds = Object.freeze({
-  BV: 'bv',
-  BVBA: 'bvba',
-  NV: 'nv',
+  Consultancy: 'consultancy',
+  Project: 'project',
 });
 
 
 // SCHEMA PROPERTIES
-const organisationSchema = new mongoose.Schema({
+const clientSchema = new mongoose.Schema({
   address: { type: addressSchema },
   deleted: { default: false, required: true, type: Boolean },
+  email: { trim: true, type: String },
   kind: { enum: Object.values(Kinds), trim: true, type: String },
   name: { required: true, trim: true, type: String },
-  registration_number: { required: true, trim: true, type: String },
-  social_security_number: { trim: true, type: String },
+  phone: { trim: true, type: String },
+  vat_number: { required: true, trim: true, type: String },
 }, { id: false, timestamps: { createdAt: 'created', updatedAt: 'updated' }, versionKey: 'version' });
 
 
 // STATICS
-Object.assign(organisationSchema.statics, { Kinds });
+Object.assign(clientSchema.statics, { Kinds });
 
 
 // CONSTRUCTOR
-module.exports = mongoose.model('Organisation', organisationSchema);
+module.exports = mongoose.model('Client', clientSchema);
 
 
 // PUBLIC PROPERTIES
