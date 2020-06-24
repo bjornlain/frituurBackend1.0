@@ -26,6 +26,10 @@ const userSchema = new mongoose.Schema({
   security_date: { select: false, type: Date },
   security_token: { select: false, trim: true, type: String },
   status: { default: 'pending', enum: Object.values(Statuses), required: true, trim: true, type: String },
+  straat: { required: true, type: String },
+  nummer: { required: true, type: Number },
+  postcode: { required: true, type: Number },
+  plaats: { required: true, type: String },
 }, { id: false, timestamps: { createdAt: 'created', updatedAt: 'updated' }, versionKey: 'version' });
 
 

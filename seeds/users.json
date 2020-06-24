@@ -6,7 +6,11 @@
     "password": "$2b$10$FwlQcXQrPCFmRXjKupFV..KweIo/WQHlz2c..cmERCBT8oA39E6tO",
     "role": { "$oid": "59cf78e883680012b0438501" },
     "status": "approved",
-    "deleted": false
+    "deleted": false,
+    "straat": "Beukenstraat",
+    "nummer": 13,
+    "postcode": 3500,
+    "plaats": "Hasselt"
   },
   {
     "_id": { "$oid": "593707516865cd044e87ef01" },
@@ -15,7 +19,11 @@
     "password": "$2b$10$FwlQcXQrPCFmRXjKupFV..KweIo/WQHlz2c..cmERCBT8oA39E6tO",
     "role": { "$oid": "59cf78e883680012b0438502" },
     "status": "approved",
-    "deleted": false
+    "deleted": false,
+    "straat": "Zemmeltraat",
+    "nummer": 7,
+    "postcode": 3830,
+    "plaats": "Wellen"
   },
   {
     "_id": { "$oid": "593707516865cd044e87ef02" },
@@ -24,7 +32,11 @@
     "password": "$2b$10$FwlQcXQrPCFmRXjKupFV..KweIo/WQHlz2c..cmERCBT8oA39E6tO",
     "role": { "$oid": "59cf78e883680012b0438502" },
     "status": "approved",
-    "deleted": false
+    "deleted": false,
+    "straat": "Heeltraat",
+    "nummer": 105,
+    "postcode": 3830,
+    "plaats": "Wellen"
   },
   {
     "_id": { "$oid": "593707516865cd044e87ef03" },
@@ -33,132 +45,10 @@
     "password": "$2b$10$FwlQcXQrPCFmRXjKupFV..KweIo/WQHlz2c..cmERCBT8oA39E6tO",
     "role": { "$oid": "59cf78e883680012b0438502" },
     "status": "approved",
-    "deleted": false
-  },
-  {
-    "_id": { "$oid": "593707516865cd044e87ef04" },
-    "email": "hans@codious.io",
-    "name": "Hans Brems",
-    "password": "$2b$10$FwlQcXQrPCFmRXjKupFV..KweIo/WQHlz2c..cmERCBT8oA39E6tO",
-    "role": { "$oid": "59cf78e883680012b0438502" },
-    "status": "approved",
-    "deleted": false
-  },
-  {
-    "_id": { "$oid": "593707516865cd044e87ef05" },
-    "email": "kevin@codious.io",
-    "name": "Kevin Gerits",
-    "password": "$2b$10$FwlQcXQrPCFmRXjKupFV..KweIo/WQHlz2c..cmERCBT8oA39E6tO",
-    "role": { "$oid": "59cf78e883680012b0438502" },
-    "status": "approved",
-    "deleted": false
-  },
-  {
-    "_id": { "$oid": "593707516865cd044e87ef06" },
-    "email": "yannick@codious.io",
-    "name": "Yannick Luijten",
-    "password": "$2b$10$FwlQcXQrPCFmRXjKupFV..KweIo/WQHlz2c..cmERCBT8oA39E6tO",
-    "role": { "$oid": "59cf78e883680012b0438502" },
-    "status": "approved",
-    "deleted": false
-  },
-  {
-    "_id": { "$oid": "593707516865cd044e87ef07" },
-    "email": "stef@codious.io",
-    "name": "Stef Leurs",
-    "password": "$2b$10$FwlQcXQrPCFmRXjKupFV..KweIo/WQHlz2c..cmERCBT8oA39E6tO",
-    "role": { "$oid": "59cf78e883680012b0438502" },
-    "status": "approved",
-    "deleted": false
-  },
-  {
-    "_id": { "$oid": "593707516865cd044e87ef08" },
-    "email": "thomas@codious.io",
-    "name": "Thomas Seberechts",
-    "password": "$2b$10$FwlQcXQrPCFmRXjKupFV..KweIo/WQHlz2c..cmERCBT8oA39E6tO",
-    "role": { "$oid": "59cf78e883680012b0438502" },
-    "status": "approved",
-    "deleted": false
-  },
-  {
-    "_id": { "$oid": "593707516865cd044e87ef09" },
-    "email": "jens@codious.io",
-    "name": "Jens Cappelle",
-    "password": "$2b$10$FwlQcXQrPCFmRXjKupFV..KweIo/WQHlz2c..cmERCBT8oA39E6tO",
-    "role": { "$oid": "59cf78e883680012b0438502" },
-    "status": "approved",
-    "deleted": false
-  },
-  {
-    "_id": { "$oid": "593707516865cd044e87ef0a" },
-    "email": "mickey@codious.io",
-    "name": "Mickey Delen",
-    "password": "$2b$10$FwlQcXQrPCFmRXjKupFV..KweIo/WQHlz2c..cmERCBT8oA39E6tO",
-    "role": { "$oid": "59cf78e883680012b0438502" },
-    "status": "approved",
-    "deleted": false
-  },
-  {
-    "_id": { "$oid": "593707516865cd044e87ef0b" },
-    "email": "lucia@codious.io",
-    "name": "Lucia Zupo",
-    "password": "$2b$10$FwlQcXQrPCFmRXjKupFV..KweIo/WQHlz2c..cmERCBT8oA39E6tO",
-    "role": { "$oid": "59cf78e883680012b0438502" },
-    "status": "approved",
-    "deleted": false
-  },
-  {
-    "_id": { "$oid": "593707516865cd044e87ef0c" },
-    "email": "dries@codious.io",
-    "name": "Dries Stelten",
-    "password": "$2b$10$FwlQcXQrPCFmRXjKupFV..KweIo/WQHlz2c..cmERCBT8oA39E6tO",
-    "role": { "$oid": "59cf78e883680012b0438502" },
-    "status": "approved",
-    "deleted": false
-  },
-  {
-    "_id": { "$oid": "593707516865cd044e87ef0d" },
-    "email": "matthias@codious.io",
-    "name": "Matthias Greif",
-    "password": "$2b$10$FwlQcXQrPCFmRXjKupFV..KweIo/WQHlz2c..cmERCBT8oA39E6tO",
-    "role": { "$oid": "59cf78e883680012b0438502" },
-    "status": "approved",
-    "deleted": false
-  },
-  {
-    "_id": { "$oid": "593707516865cd044e87ef0e" },
-    "email": "tim@codious.io",
-    "name": "Tim Embrechts",
-    "password": "$2b$10$FwlQcXQrPCFmRXjKupFV..KweIo/WQHlz2c..cmERCBT8oA39E6tO",
-    "role": { "$oid": "59cf78e883680012b0438502" },
-    "status": "approved",
-    "deleted": false
-  },
-  {
-    "_id": { "$oid": "593707516865cd044e87ef0f" },
-    "email": "koen@codious.io",
-    "name": "Koen Vanderlinden",
-    "password": "$2b$10$FwlQcXQrPCFmRXjKupFV..KweIo/WQHlz2c..cmERCBT8oA39E6tO",
-    "role": { "$oid": "59cf78e883680012b0438502" },
-    "status": "approved",
-    "deleted": false
-  },
-  {
-    "_id": { "$oid": "593707516865cd044e87ef10" },
-    "email": "sarah@codious.io",
-    "name": "Sarah Linsen",
-    "password": "$2b$10$FwlQcXQrPCFmRXjKupFV..KweIo/WQHlz2c..cmERCBT8oA39E6tO",
-    "role": { "$oid": "59cf78e883680012b0438502" },
-    "status": "approved",
-    "deleted": false
-  },
-  {
-    "_id": { "$oid": "593707516865cd044e87ef11" },
-    "email": "jelle@codious.io",
-    "name": "Jelle Schreurs",
-    "password": "$2b$10$FwlQcXQrPCFmRXjKupFV..KweIo/WQHlz2c..cmERCBT8oA39E6tO",
-    "role": { "$oid": "59cf78e883680012b0438502" },
-    "status": "approved",
-    "deleted": false
+    "deleted": false,
+    "straat": "Fatihtraat",
+    "nummer": 10,
+    "postcode": 3830,
+    "plaats": "Wellen"
   }
 ]

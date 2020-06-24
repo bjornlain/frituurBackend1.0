@@ -2,14 +2,16 @@
   {
     "_id": { "$oid": "593707516865cd044e87ef55" },
     "name": "fritkot 1",
-    "adres": "daalstraat 25",
+    "straat": "daalstraat",
+    "nummer" : 25,
     "postcode": 3830,
     "plaats": "Wellen"
   },
   {
     "_id": { "$oid": "593707516865cd044e87ef56" },
     "name": "fritkot 2",
-    "adres": "lolstraat 25",
+    "straat": "lolstraat",
+    "nummer" : 7,
     "postcode": 3500,
     "plaats": "Hasselt"
   }
